@@ -230,4 +230,6 @@ return [
 
     ],
 
+    "DEFAULT_SEAT_NUMBERS" => env('DEFAULT_SEAT_NUMBERS',12)
+
 ];
