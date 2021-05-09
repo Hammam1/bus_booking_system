@@ -19,6 +19,7 @@ class CreateTicketsTable extends Migration
             $table->int('seat_number')->nullable(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+            $table->foreign('bus_trip_id')->references('trip_id')->on('bus_trip');
         });
     }
 
