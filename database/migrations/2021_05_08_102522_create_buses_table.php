@@ -15,8 +15,7 @@ class CreateBusesTable extends Migration
     {
         Schema::create('buses', function (Blueprint $table) {
             $table->string('plate_number', 50)->primary();
-            $table->int('seat_numbers')->nullable(false)->default(config('app.DEFAULT_SEAT_NUMBERS'));
-            $table->json('seats')->nullable(false);
+            $table->integer('seat_numbers')->nullable(false)->default(config('app.DEFAULT_SEAT_NUMBERS'));
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

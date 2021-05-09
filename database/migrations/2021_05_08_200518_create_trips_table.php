@@ -19,8 +19,8 @@ class CreateTripsTable extends Migration
             $table->string('to', 50)->nullable(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->foreign('from_city')->references('from')->on('cities');
-            $table->foreign('to_city')->references('to')->on('cities');
+            $table->foreign('from')->references('name')->on('cities');
+            $table->foreign('to')->references('name')->on('cities');
         });
     }
 

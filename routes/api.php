@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/seats/book', 'Api/SeatController@book');
-Route::get('/seats', 'Api/SeatController@index');
+Route::post('/seats/book', 'Api/SeatController@bookSeat');
+Route::get('/seats', 'Api/SeatController@getAvailableSeats');

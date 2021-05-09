@@ -21,8 +21,15 @@ class BusFactory extends Factory
      */
     public function definition()
     {
+        $seat_numbers = [];
+        $seat_numbers_count = config('app.DEFAULT_SEAT_NUMBERS');
+        for ($i = 0; $i < $seat_numbers_count; $i++)
+        {
+            array_push($seat_numbers,$this->faker->unique()->str_random(2));//numberBetween(1, $seat_numbers_count));
+        }
+        dd($seat_numbers);
         return [
-            //
+            'seat_numbers' => json_encode(["key" => $this->faker->randomNumber()] )
         ];
     }
 }

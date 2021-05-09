@@ -20,8 +20,8 @@ class CreateBusTripTable extends Migration
             $table->string('trip_type', 50)->nullable(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->foreign('bus_plate_number')->references('bus_plate_number')->on('buses');
-            $table->foreign('trip')->references('trip_id')->on('trips');
+            $table->foreign('bus_plate_number')->references('plate_number')->on('buses');
+            $table->foreign('trip_id')->references('id')->on('trips');
         });
     }
 

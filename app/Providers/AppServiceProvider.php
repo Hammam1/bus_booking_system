@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Repositories\BaseRepository;
+use App\Repositories\Interfaces\BaseRepositoryInterface;
+use App\Repositories\Interfaces\SeatRepositoryInterface;
+use App\Repositories\SeatRepository;
+use App\Services\Interfaces\SeatServiceInterface;
+use App\Services\SeatService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,6 +22,13 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
+    public function bindInterfaces()
+    {
+        $this->app->bind(BaseRepositoryInterface::class, BaseRepository::class);
+        $this->app->bind(SeatRepositoryInterface::class, SeatRepository::class);
+        $this->app->bind(SeatServiceInterface::class, SeatService::class);
+    }
+
     /**
      * Bootstrap any application services.
      *
@@ -23,6 +36,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->bindInterfaces();
     }
 }

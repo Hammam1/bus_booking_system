@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Trip;
 use Illuminate\Database\Seeder;
 
-class BusSeeder extends Seeder
+class TicketSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class BusSeeder extends Seeder
      */
     public function run()
     {
-        Trip::factory()->count(10)->create();
+        //
     }
 }
