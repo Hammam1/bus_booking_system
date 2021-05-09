@@ -17,7 +17,8 @@ class CreateTripsTable extends Migration
             $table->id();
             $table->string('from', 50)->nullable(false);
             $table->string('to', 50)->nullable(false);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

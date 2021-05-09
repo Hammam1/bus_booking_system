@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBusesTable extends Migration
+class CreateTicketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateBusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('buses', function (Blueprint $table) {
-            $table->string('plate_number', 50)->primary();
-            $table->int('seat_numbers')->nullable(false)->default(config('app.DEFAULT_SEAT_NUMBERS'));
-            $table->json('seats')->nullable(false);
+        Schema::create('tickets', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('bus_trip_id');
+            $table->int('seat_number')->nullable(false);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -29,6 +29,6 @@ class CreateBusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buses');
+        Schema::dropIfExists('tickets');
     }
 }

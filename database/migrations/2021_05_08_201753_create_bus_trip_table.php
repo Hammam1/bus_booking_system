@@ -15,10 +15,11 @@ class CreateBusTripTable extends Migration
     {
         Schema::create('bus_trip', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('bus_id');
+            $table->string('bus_plate_number', 50);
             $table->unsignedBigInteger('trip_id');
             $table->string('trip_type', 50)->nullable(false);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
